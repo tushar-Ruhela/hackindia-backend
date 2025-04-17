@@ -3,6 +3,8 @@ import path from 'path';
 import authRoutes from './routes/auth';
 import 'dotenv/config';
 import cors from "cors"
+import { profile } from 'console';
+import userRoute from './routes/profile';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,6 +24,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Routes
 app.use('/auth', authRoutes);
+app.use("/profile",userRoute)
 
 // Home route
 app.get('/', (req, res) => {

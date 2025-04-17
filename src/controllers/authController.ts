@@ -71,7 +71,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         name: foundUser.name,
         email: foundUser.email,
       },
-    });
+    }).cookie("token",token);
   } catch (error: any) {
     console.error('Login error:', error);
     res.status(500).json({ message: 'Server error during login' });
